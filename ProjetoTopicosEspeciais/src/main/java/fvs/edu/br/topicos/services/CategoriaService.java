@@ -13,14 +13,11 @@ public class CategoriaService {
 	
 	@Autowired
 	private CategoriaRepository repositorio;
-
+	
 	public Categoria buscar(Integer id) {
 		Optional<Categoria> obj = repositorio.findById(id);
 		
 		return obj.orElse(null);
-		
-		
-		
 	}
-	
+
 }

@@ -8,8 +8,4 @@ import fvs.edu.br.topicos.domain.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
 
-	
-	
 }
-
-
