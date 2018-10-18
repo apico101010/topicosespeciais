@@ -10,7 +10,7 @@
 	<packaging>jar</packaging>
 
 	<name>ProjetoTopicosEspeciais</name>
-	<description>Projeto desenvolvido na disciplina de topicos especiais FVS.</description>
+	<description>Projeto Desenvolvido no Pentagono</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -52,9 +52,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
-
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -63,6 +61,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

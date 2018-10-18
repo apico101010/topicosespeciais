@@ -1,76 +1,73 @@
 package fvs.edu.br.topicos.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Produto  implements Serializable {
+public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    private Integer id;
+	
 	private String nome;
-	private Double preço;
-
-	@JsonIgnore
-	@ManyToMany
-	@JoinTable(name = "PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-	List<Categoria> categorias = new ArrayList<>();
-
-	public Produto(){
+	
+	@ManyToOne
+	@JoinColumn(name="estado_id")
+	private Estado estado;
+	
+	
+	public Cidade() {
+		
 		
 	}
-	
-	public Produto(Integer id, String nome, Double preço) {
+
+
+	public Cidade(Integer id, String nome, Estado estado) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.preço = preço;
+		this.estado = estado;
 	}
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public Double getPreço() {
-		return preço;
+
+	public Estado getEstado() {
+		return estado;
 	}
 
-	public void setPreço(Double preço) {
-		this.preço = preço;
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 
-	public List<Categoria> getCategorias() {
-		return categorias;
-	}
-
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
-	}
 
 	@Override
 	public int hashCode() {
@@ -80,6 +77,7 @@ public class Produto  implements Serializable {
 		return result;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,7 +86,7 @@ public class Produto  implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produto other = (Produto) obj;
+		Cidade other = (Cidade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -97,6 +95,8 @@ public class Produto  implements Serializable {
 		return true;
 	}
 
+
+	
 	
 	
 }
